@@ -1,39 +1,35 @@
-import { useState, useEffect, useRef } from "react";
-//import  {countdownapi} from "react-countdown";
-import Countdown from "react-countdown";
+import { useEffect, useRef } from 'react';
+import Countdown from 'react-countdown';
 
-const Timer = ({ begin, setBegin, setSave}) => {
-    const [time, setTime] = useState(60);
-    let interval = 0;
-    let te = 6;
-    const clockRef = useRef();
+const Counter = ({props}) => <span>{props.seconds===0?60:props.seconds}</span>
 
-    const Counter = ({props}) => <span>{props.seconds===0?60:props.seconds}</span>;
+const Timer = ({ start, setStart, setSave }) => {
+    const timerRef = useRef();
+
+    const handleEnd = ({ start }) => {
+        console.log('timer end');
+        setStart(false)
+        setSave(true)
+    }
 
     useEffect(() => {
-        if(begin === true){
-            clockRef.current.start();
+        if (start) {
+            timerRef.current.start()
         }
-    }, [begin]);
-    const handleEnd = () => {
-        //console.log('end timer');
-        setSave(true)
-        setBegin(false)
-    }
+    }, [start])
 
     return (
         <div className="timer">
             <h3> 
-                <Countdown 
-                    date={Date.now() + 60000}
-                    onComplete={handleEnd}
-                    renderer={props =><Counter props={props}/>}
-                    autoStart={false}
-                    ref={clockRef}
-                >
-                </Countdown>
-             Sec
-            </h3>
+            <Countdown
+                date={Date.now() + 60000}
+                renderer={props => <Counter props={props}/>}
+                onComplete={handleEnd}
+                autoStart={false}
+                ref={timerRef}
+            >
+            </Countdown>
+            Sec</h3>
         </div>
     );
 }

@@ -10,12 +10,13 @@ export const getImages = (size) => {
         "/javascript.svg",
         "/supabase.svg",
         "/svelte.svg",
-        "/vscode.svg",
+        "/vscode.svg"
     ]
-    
-    const newImages = images.slice(0, size);
-    //console.log(newImages);
-    //console.log(newImages.flatMap(item => [`a|${item}`, `b|${item}`]).sort(() => Math.random()-0.5));
 
-    return newImages.flatMap(item => [`a|${item}`, `b|${item}`]).sort(() => Math.random() - 0.5);
-}
+    const newImages = images.slice(0, size);
+
+    return newImages.flatMap(item => [`1|${item}`, `2|${item}`])
+            .sort(() => Math.random() - 0.5)
+        // 50% 0 - 0.5   0.4 - 0.5 -
+        // 50% 0.5 - 1   0.7 - 0.5 +
+} 
