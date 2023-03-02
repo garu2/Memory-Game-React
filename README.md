@@ -2,10 +2,12 @@
 ![image](https://res.cloudinary.com/dqd5x0s7w/image/upload/v1677681149/github/memoryGameImage-min_lph2e7.png)
 
 ## 🚀DEMO
- [Deploy ]()
+ [Deploy ](https://memory-game-sigma-plum.vercel.app/)
 
 ## 💻Tutorial
-[YouTube]()
+<a href='https://youtu.be/zOXD9amKrDg' target='_blank'>
+    <img width='30%' src='https://img.youtube.com/vi/zOXD9amKrDg/mqdefault.jpg' alt='Memory Game React' />
+</a>
 
 ## 📦Getting Started
 ```
